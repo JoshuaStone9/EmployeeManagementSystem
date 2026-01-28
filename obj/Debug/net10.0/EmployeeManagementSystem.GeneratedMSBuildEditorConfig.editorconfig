@@ -26,14 +26,6 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josh/Documents/GitHub/EmployeeManagementSystem/Employees/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = RW1wbG95ZWVzXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/josh/Documents/GitHub/EmployeeManagementSystem/Employees/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = RW1wbG95ZWVzXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/josh/Documents/GitHub/EmployeeManagementSystem/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = SG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -60,6 +52,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/josh/Documents/GitHub/EmployeeManagementSystem/Views/Employees/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/josh/Documents/GitHub/EmployeeManagementSystem/Views/Employees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/josh/Documents/GitHub/EmployeeManagementSystem/Views/Employees/Index.cshtml]

@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\josh\\Documents\\GitHub\\EmployeeManagementSystem\\Project 1.csproj",
-      "projectName": "Project 1",
-      "projectPath": "C:\\Users\\josh\\Documents\\GitHub\\EmployeeManagementSystem\\Project 1.csproj",
+      "projectUniqueName": "C:\\Users\\josh\\Documents\\GitHub\\EmployeeManagementSystem\\EmployeeManagementSystem.csproj",
+      "projectName": "EmployeeManagementSystem",
+      "projectPath": "C:\\Users\\josh\\Documents\\GitHub\\EmployeeManagementSystem\\EmployeeManagementSystem.csproj",
       "packagesPath": "C:\\Users\\josh\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\josh\\Documents\\GitHub\\EmployeeManagementSystem\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,12 +1,12 @@
-using Employees.Models;
+using EmployeeManagementSystem.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Employees.Data
+namespace EmployeeManagementSystem.Data
 {
     public static class EmployeeRepository
     {
-        private static readonly new List<Employee> _employees = 
+        private static readonly List<Employee> _employees = 
         [
            new Employee { Id = 1, FirstName = "John", LastName = "Doe", Title = "Software Engineer", Email = "john.doe@example.com"}
         ];

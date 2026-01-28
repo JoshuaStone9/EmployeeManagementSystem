@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using Employees.Data;
-using Employees.Models;
+using EmployeeManagementSystem.Data;
+using EmployeeManagementSystem.Models;
 using System.Security.Principal;
 
-namespace Employees.Controllers
+namespace EmployeeManagementSystem.Controllers
 {
     public class EmployeesController : Controller
     {

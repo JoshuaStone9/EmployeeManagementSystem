@@ -1,0 +1,61 @@
+### Employee API Test File
+### Use this with VS Code REST Client extension or similar tools
+
+@baseUrl = https://localhost:5001/api/employeesapi
+
+### Get all employees
+GET {{baseUrl}}
+
+###
+
+### Get employee by ID
+GET {{baseUrl}}/1
+
+###
+
+### Create new employee
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "title": "Software Engineer",
+  "email": "jane.smith@example.com"
+}
+
+###
+
+### Update employee
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "firstName": "John",
+  "lastName": "Doe",
+  "title": "Senior Software Engineer",
+  "email": "john.doe@example.com"
+}
+
+###
+
+### Delete employee
+DELETE {{baseUrl}}/2
+
+###
+
+### Search employees by last name
+GET {{baseUrl}}/search?lastname=Doe
+
+###
+
+### Test validation - missing required fields
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "firstName": "Test"
+}
+
+###

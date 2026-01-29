@@ -1,0 +1,51 @@
+{
+  "getAllEmployees": {
+    "method": "GET",
+    "url": "/api/employeesapi",
+    "description": "Retrieves all employees"
+  },
+  "getEmployeeById": {
+    "method": "GET",
+    "url": "/api/employeesapi/1",
+    "description": "Retrieves employee with ID 1"
+  },
+  "createEmployee": {
+    "method": "POST",
+    "url": "/api/employeesapi",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "title": "Product Manager",
+      "email": "alice.johnson@example.com"
+    },
+    "description": "Creates a new employee"
+  },
+  "updateEmployee": {
+    "method": "PUT",
+    "url": "/api/employeesapi/1",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "title": "Lead Developer",
+      "email": "john.doe@example.com"
+    },
+    "description": "Updates employee with ID 1"
+  },
+  "deleteEmployee": {
+    "method": "DELETE",
+    "url": "/api/employeesapi/1",
+    "description": "Deletes employee with ID 1"
+  },
+  "searchEmployees": {
+    "method": "GET",
+    "url": "/api/employeesapi/search?lastname=Doe",
+    "description": "Searches for employees with last name containing 'Doe'"
+  }
+}

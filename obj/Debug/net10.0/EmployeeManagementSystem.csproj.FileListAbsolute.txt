@@ -25,7 +25,6 @@ C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\scoped
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\scopedcss\projectbundle\EmployeeManagementSystem.bundle.scp.css
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\9nejpizab4-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\5qg6okrlri-{0}-61n19gt1b8-61n19gt1b8.gz
-C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\my4hs66gfd-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\qm32lmlh8e-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\6lql9t67bf-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\acna8tjzgi-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -97,3 +96,6 @@ C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\refint
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\EmployeeManagementSystem.pdb
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\EmployeeManagementSystem.genruntimeconfig.cache
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\ref\EmployeeManagementSystem.dll
+C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\bin\Debug\net10.0\example-requests.json
+C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\0rja6wcxcv-{0}-e52sph8mrg-e52sph8mrg.gz
+C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\my4hs66gfd-{0}-5047y7xx70-5047y7xx70.gz

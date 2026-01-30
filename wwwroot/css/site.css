@@ -15,8 +15,17 @@ html {
   background: linear-gradient(135deg, #ff8f45 0%, #f7931e 100%);
   border-radius: 15px;
   padding: 2rem;
-  color: white;
+  color: white;  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
+
+.container.mt-5 h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;}
 
 .outside-weather-container {
   background: linear-gradient(135deg, #ff4400 0%, #ff8800 100%);
@@ -98,6 +107,8 @@ html {
 
 body {
   margin-bottom: 60px;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(247, 147, 30, 0.1) 100%);
+  min-height: 100vh;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {

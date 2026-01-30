@@ -6,20 +6,27 @@ namespace EmployeeManagementSystem.Controllers.Api
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EmployeesApiController : ControllerBase  // Note: ControllerBase, not Controller
+    public class EmployeesApiController : ControllerBase
     {
+        private readonly AppDbContext _context;
+
+        public EmployeesApiController(AppDbContext context)
+        {
+            _context = context;
+        }
+
         // GET: api/employeesapi
         [HttpGet]
         public ActionResult<List<Employee>> GetAll()
         {
-            return Ok(EmployeeRepository.GetAll());
+            return Ok(EmployeeRepository.GetAll(_context));
         }
 
         // GET: api/employeesapi/5
         [HttpGet("{id}")]
         public ActionResult<Employee> GetById(int id)
         {
-            var employee = EmployeeRepository.GetById(id);
+            var employee = EmployeeRepository.GetById(_context, id);
             if (employee == null)
                 return NotFound();
             return Ok(employee);
@@ -32,7 +39,7 @@ namespace EmployeeManagementSystem.Controllers.Api
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            EmployeeRepository.Add(employee);
+            EmployeeRepository.Add(_context, employee);
             return CreatedAtAction(nameof(GetById), new { id = employee.Id }, employee);
         }
 
@@ -46,7 +53,7 @@ namespace EmployeeManagementSystem.Controllers.Api
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var updated = EmployeeRepository.Update(employee);
+            var updated = EmployeeRepository.Update(_context, employee);
             if (!updated)
                 return NotFound();
 
@@ -57,7 +64,7 @@ namespace EmployeeManagementSystem.Controllers.Api
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var deleted = EmployeeRepository.Delete(id);
+            var deleted = EmployeeRepository.Delete(_context, id);
             if (!deleted)
                 return NotFound();
 
@@ -68,7 +75,7 @@ namespace EmployeeManagementSystem.Controllers.Api
         [HttpGet("search")]
         public ActionResult<List<Employee>> Search([FromQuery] string lastname)
         {
-            var results = EmployeeRepository.SearchByLastName(lastname);
+            var results = EmployeeRepository.SearchByLastName(_context, lastname);
             return Ok(results);
         }
     }

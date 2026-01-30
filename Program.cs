@@ -1,9 +1,32 @@
+using EmployeeManagementSystem.Data;
+using Microsoft.EntityFrameworkCore;
+using DotNetEnv;
+
+// Load .env file
+Env.Load();
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Add HttpClient for API calls
+builder.Services.AddHttpClient();
+
+// Add DbContext with SQL Server
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+    ?? "Server=(localdb)\\mssqllocaldb;Database=EmployeeManagementDb;Trusted_Connection=true;";
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
 var app = builder.Build();
+
+// Create database
+using (var scope = app.Services.CreateScope())
+{
+	var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+	dbContext.Database.EnsureCreated();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

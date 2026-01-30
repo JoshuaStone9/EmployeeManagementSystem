@@ -7,15 +7,22 @@ namespace EmployeeManagementSystem.Controllers
 {
     public class EmployeesController : Controller
     {
+        private readonly AppDbContext _context;
+
+        public EmployeesController(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            var employees = EmployeeRepository.GetAll();
+            var employees = EmployeeRepository.GetAll(_context);
             return View(employees);
         }
 
         public IActionResult Details(int id)
         {
-            var employee = EmployeeRepository.GetById(id);
+            var employee = EmployeeRepository.GetById(_context, id);
             if (employee == null)
                 return NotFound();
             return View(employee);
@@ -33,13 +40,13 @@ namespace EmployeeManagementSystem.Controllers
             if (!ModelState.IsValid)
                 return View(employee);
 
-            EmployeeRepository.Add(employee);
+            EmployeeRepository.Add(_context, employee);
             return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Edit(int id)
         {
-            var employee = EmployeeRepository.GetById(id);
+            var employee = EmployeeRepository.GetById(_context, id);
             if (employee == null)
                 return NotFound();
             return View(employee);
@@ -52,7 +59,7 @@ namespace EmployeeManagementSystem.Controllers
             if (!ModelState.IsValid)
                 return View(employee);
 
-            var updated = EmployeeRepository.Update(employee);
+            var updated = EmployeeRepository.Update(_context, employee);
             if (!updated)
                 return NotFound();
 
@@ -61,7 +68,7 @@ namespace EmployeeManagementSystem.Controllers
 
         public IActionResult Delete(int id)
         {
-            var employee = EmployeeRepository.GetById(id);
+            var employee = EmployeeRepository.GetById(_context, id);
             if(employee == null)
                 return NotFound();
             return View(employee);
@@ -71,7 +78,7 @@ namespace EmployeeManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var deleted = EmployeeRepository.Delete(id);
+            var deleted = EmployeeRepository.Delete(_context, id);
             if (!deleted)
                 return NotFound();
 
@@ -79,7 +86,7 @@ namespace EmployeeManagementSystem.Controllers
         }
         public IActionResult Search(string lastname)
         {
-            var results = EmployeeRepository.SearchByLastName(lastname);
+            var results = EmployeeRepository.SearchByLastName(_context, lastname);
             return View("Index", results);
         }
 }

@@ -5,6 +5,40 @@
 
 const apiBase = '/api/employeesapi';
 
+function formatEmployeesAsTable(employees) {
+	if (!Array.isArray(employees) || employees.length === 0) {
+		return '<p>No employees found</p>';
+	}
+
+	let html = '<table class="table table-striped"><thead><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Title</th><th>Email</th></tr></thead><tbody>';
+	
+	employees.forEach(emp => {
+		html += `<tr>
+			<td>${emp.id}</td>
+			<td>${emp.firstName}</td>
+			<td>${emp.lastName}</td>
+			<td>${emp.title}</td>
+			<td>${emp.email}</td>
+		</tr>`;
+	});
+	
+	html += '</tbody></table>';
+	return html;
+}
+
+function formatSingleEmployee(emp) {
+	return `
+		<div class="card">
+			<div class="card-body">
+				<p><strong>ID:</strong> ${emp.id}</p>
+				<p><strong>Name:</strong> ${emp.firstName} ${emp.lastName}</p>
+				<p><strong>Title:</strong> ${emp.title}</p>
+				<p><strong>Email:</strong> ${emp.email}</p>
+			</div>
+		</div>
+	`;
+}
+
 async function getAllEmployees() {
 	try {
 		const response = await fetch(apiBase);
@@ -14,7 +48,7 @@ async function getAllEmployees() {
 			return;
 		}
 		const data = await response.json();
-		document.getElementById('allEmployeesResult').textContent = JSON.stringify(data, null, 2);
+		document.getElementById('allEmployeesResult').innerHTML = formatEmployeesAsTable(data);
 	} catch (error) {
 		document.getElementById('allEmployeesResult').textContent = 'Error: ' + error.message;
 	}
@@ -35,7 +69,7 @@ async function getEmployeeById() {
 			return;
 		}
 		const data = await response.json();
-		document.getElementById('getEmployeeResult').textContent = JSON.stringify(data, null, 2);
+		document.getElementById('getEmployeeResult').innerHTML = formatSingleEmployee(data);
 	} catch (error) {
 		document.getElementById('getEmployeeResult').textContent = 'Error: ' + error.message;
 	}
@@ -65,7 +99,7 @@ async function createEmployee() {
 		}
 
 		const data = await response.json();
-		document.getElementById('createEmployeeResult').textContent = JSON.stringify(data, null, 2);
+		document.getElementById('createEmployeeResult').innerHTML = formatSingleEmployee(data);
 
 		// Clear form
 		document.getElementById('createFirstName').value = '';
@@ -153,7 +187,7 @@ async function searchEmployees() {
 			return;
 		}
 		const data = await response.json();
-		document.getElementById('searchEmployeesResult').textContent = JSON.stringify(data, null, 2);
+		document.getElementById('searchEmployeesResult').innerHTML = formatEmployeesAsTable(data);
 	} catch (error) {
 		document.getElementById('searchEmployeesResult').textContent = 'Error: ' + error.message;
 	}

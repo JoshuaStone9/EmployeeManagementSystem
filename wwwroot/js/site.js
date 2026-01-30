@@ -7,33 +7,52 @@ const apiBase = '/api/employeesapi';
 
 function formatEmployeesAsTable(employees) {
 	if (!Array.isArray(employees) || employees.length === 0) {
-		return '<p>No employees found</p>';
+		return '<div class="alert alert-info" role="alert">No employees found</div>';
 	}
 
-	let html = '<table class="table table-striped"><thead><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Title</th><th>Email</th></tr></thead><tbody>';
+	let html = '<div class="table-responsive"><table class="table table-hover table-striped"><thead class="table-light"><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Job Title</th><th>Email</th></tr></thead><tbody>';
 	
 	employees.forEach(emp => {
 		html += `<tr>
-			<td>${emp.id}</td>
+			<td><span class="badge bg-primary">${emp.id}</span></td>
 			<td>${emp.firstName}</td>
 			<td>${emp.lastName}</td>
 			<td>${emp.title}</td>
-			<td>${emp.email}</td>
+			<td><a href="mailto:${emp.email}">${emp.email}</a></td>
 		</tr>`;
 	});
 	
-	html += '</tbody></table>';
+	html += '</tbody></table></div>';
 	return html;
 }
 
 function formatSingleEmployee(emp) {
 	return `
-		<div class="card">
+		<div class="card border-0 shadow-sm">
+			<div class="card-header bg-light">
+				<h5 class="mb-0">Employee Details</h5>
+			</div>
 			<div class="card-body">
-				<p><strong>ID:</strong> ${emp.id}</p>
-				<p><strong>Name:</strong> ${emp.firstName} ${emp.lastName}</p>
-				<p><strong>Title:</strong> ${emp.title}</p>
-				<p><strong>Email:</strong> ${emp.email}</p>
+				<div class="row mb-3">
+					<div class="col-md-6">
+						<p class="mb-1"><strong class="text-secondary">Employee ID:</strong></p>
+						<p class="fs-5">${emp.id}</p>
+					</div>
+					<div class="col-md-6">
+						<p class="mb-1"><strong class="text-secondary">Full Name:</strong></p>
+						<p class="fs-5">${emp.firstName} ${emp.lastName}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<p class="mb-1"><strong class="text-secondary">Job Title:</strong></p>
+						<p class="fs-5">${emp.title}</p>
+					</div>
+					<div class="col-md-6">
+						<p class="mb-1"><strong class="text-secondary">Email:</strong></p>
+						<p class="fs-5"><a href="mailto:${emp.email}">${emp.email}</a></p>
+					</div>
+				</div>
 			</div>
 		</div>
 	`;
@@ -44,20 +63,20 @@ async function getAllEmployees() {
 		const response = await fetch(apiBase);
 		if (!response.ok) {
 			const text = await response.text();
-			document.getElementById('allEmployeesResult').textContent = `Error ${response.status}: ${text}`;
+			document.getElementById('allEmployeesResult').innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error ${response.status}:</strong> ${text}</div>`;
 			return;
 		}
 		const data = await response.json();
 		document.getElementById('allEmployeesResult').innerHTML = formatEmployeesAsTable(data);
 	} catch (error) {
-		document.getElementById('allEmployeesResult').textContent = 'Error: ' + error.message;
+		document.getElementById('allEmployeesResult').innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error:</strong> ${error.message}</div>`;
 	}
 }
 
 async function getEmployeeById() {
 	const id = document.getElementById('getEmployeeId').value;
 	if (!id) {
-		alert('Please enter an employee ID');
+		document.getElementById('getEmployeeResult').innerHTML = '<div class="alert alert-warning" role="alert">Please enter an employee ID</div>';
 		return;
 	}
 
@@ -65,13 +84,13 @@ async function getEmployeeById() {
 		const response = await fetch(`${apiBase}/${id}`);
 		if (!response.ok) {
 			const text = await response.text();
-			document.getElementById('getEmployeeResult').textContent = `Error ${response.status}: ${text}`;
+			document.getElementById('getEmployeeResult').innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error ${response.status}:</strong> ${text}</div>`;
 			return;
 		}
 		const data = await response.json();
 		document.getElementById('getEmployeeResult').innerHTML = formatSingleEmployee(data);
 	} catch (error) {
-		document.getElementById('getEmployeeResult').textContent = 'Error: ' + error.message;
+		document.getElementById('getEmployeeResult').innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error:</strong> ${error.message}</div>`;
 	}
 }
 
@@ -82,6 +101,11 @@ async function createEmployee() {
 		title: document.getElementById('createTitle').value,
 		email: document.getElementById('createEmail').value
 	};
+
+	if (!employee.firstName || !employee.lastName || !employee.title || !employee.email) {
+		document.getElementById('createEmployeeResult').innerHTML = '<div class="alert alert-warning" role="alert">Please fill in all fields</div>';
+		return;
+	}
 
 	try {
 		const response = await fetch(apiBase, {
@@ -94,12 +118,12 @@ async function createEmployee() {
 
 		if (!response.ok) {
 			const text = await response.text();
-			document.getElementById('createEmployeeResult').textContent = `Error ${response.status}: ${text}`;
+			document.getElementById('createEmployeeResult').innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error ${response.status}:</strong> ${text}</div>`;
 			return;
 		}
 
 		const data = await response.json();
-		document.getElementById('createEmployeeResult').innerHTML = formatSingleEmployee(data);
+		document.getElementById('createEmployeeResult').innerHTML = `<div class="alert alert-success" role="alert"><strong>Success!</strong> Employee created successfully.</div>` + formatSingleEmployee(data);
 
 		// Clear form
 		document.getElementById('createFirstName').value = '';
@@ -107,7 +131,7 @@ async function createEmployee() {
 		document.getElementById('createTitle').value = '';
 		document.getElementById('createEmail').value = '';
 	} catch (error) {
-		document.getElementById('createEmployeeResult').textContent = 'Error: ' + error.message;
+		document.getElementById('createEmployeeResult').innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error:</strong> ${error.message}</div>`;
 	}
 }
 
@@ -121,7 +145,12 @@ async function updateEmployee() {
 	};
 
 	if (!employee.id) {
-		alert('Please enter an employee ID');
+		document.getElementById('updateEmployeeResult').innerHTML = '<div class="alert alert-warning" role="alert">Please enter an employee ID</div>';
+		return;
+	}
+
+	if (!employee.firstName || !employee.lastName || !employee.title || !employee.email) {
+		document.getElementById('updateEmployeeResult').innerHTML = '<div class="alert alert-warning" role="alert">Please fill in all fields</div>';
 		return;
 	}
 
@@ -135,24 +164,24 @@ async function updateEmployee() {
 		});
 
 		if (response.ok) {
-			document.getElementById('updateEmployeeResult').textContent = 'Employee updated successfully';
+			document.getElementById('updateEmployeeResult').innerHTML = '<div class="alert alert-success" role="alert"><strong>Success!</strong> Employee updated successfully.</div>';
 		} else {
-			const error = await response.json();
-			document.getElementById('updateEmployeeResult').textContent = JSON.stringify(error, null, 2);
+			const error = await response.text();
+			document.getElementById('updateEmployeeResult').innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error:</strong> ${error}</div>`;
 		}
 	} catch (error) {
-		document.getElementById('updateEmployeeResult').textContent = 'Error: ' + error.message;
+		document.getElementById('updateEmployeeResult').innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error:</strong> ${error.message}</div>`;
 	}
 }
 
 async function deleteEmployee() {
 	const id = document.getElementById('deleteEmployeeId').value;
 	if (!id) {
-		alert('Please enter an employee ID');
+		document.getElementById('deleteEmployeeResult').innerHTML = '<div class="alert alert-warning" role="alert">Please enter an employee ID</div>';
 		return;
 	}
 
-	if (!confirm(`Are you sure you want to delete employee ${id}?`)) {
+	if (!confirm(`Are you sure you want to delete employee ${id}? This action cannot be undone.`)) {
 		return;
 	}
 
@@ -162,20 +191,21 @@ async function deleteEmployee() {
 		});
 
 		if (response.ok) {
-			document.getElementById('deleteEmployeeResult').textContent = 'Employee deleted successfully';
+			document.getElementById('deleteEmployeeResult').innerHTML = '<div class="alert alert-success" role="alert"><strong>Success!</strong> Employee deleted successfully.</div>';
+			document.getElementById('deleteEmployeeId').value = '';
 		} else {
-			const error = await response.json();
-			document.getElementById('deleteEmployeeResult').textContent = JSON.stringify(error, null, 2);
+			const error = await response.text();
+			document.getElementById('deleteEmployeeResult').innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error:</strong> ${error}</div>`;
 		}
 	} catch (error) {
-		document.getElementById('deleteEmployeeResult').textContent = 'Error: ' + error.message;
+		document.getElementById('deleteEmployeeResult').innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error:</strong> ${error.message}</div>`;
 	}
 }
 
 async function searchEmployees() {
 	const lastname = document.getElementById('searchLastName').value;
 	if (!lastname) {
-		alert('Please enter a last name to search');
+		document.getElementById('searchEmployeesResult').innerHTML = '<div class="alert alert-warning" role="alert">Please enter a last name to search</div>';
 		return;
 	}
 
@@ -183,12 +213,12 @@ async function searchEmployees() {
 		const response = await fetch(`${apiBase}/search?lastname=${encodeURIComponent(lastname)}`);
 		if (!response.ok) {
 			const text = await response.text();
-			document.getElementById('searchEmployeesResult').textContent = `Error ${response.status}: ${text}`;
+			document.getElementById('searchEmployeesResult').innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error ${response.status}:</strong> ${text}</div>`;
 			return;
 		}
 		const data = await response.json();
 		document.getElementById('searchEmployeesResult').innerHTML = formatEmployeesAsTable(data);
 	} catch (error) {
-		document.getElementById('searchEmployeesResult').textContent = 'Error: ' + error.message;
+		document.getElementById('searchEmployeesResult').innerHTML = `<div class="alert alert-danger" role="alert"><strong>Error:</strong> ${error.message}</div>`;
 	}
 }

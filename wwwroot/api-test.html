@@ -3,92 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee API Tester</title>
+    <title>Employee Management Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="/css/site.css" rel="stylesheet">
 </head>
 <body onload="getLocalWeather()">
+    <!-- Header -->
     <div class="container mt-5">
-        <h1>Employee Management System</h1>
-
-        <div class="outside-weather-container">
-
-        <div class="card bg-gradient border-0 shadow">
-            <div class="card-body">
-                <h2>Weather</h2>
-                <div id="weatherResult" class="weather-container"></div>
-            </div>
-        </div>
+        <h1><i class="bi bi-building"></i> Employee Management Dashboard</h1>
+        <p>Manage your workforce efficiently with real-time data</p>
     </div>
-        
-        <!-- Get All Employees -->
-        <div class="card mb-3">
-            <div class="card-header">GET All Employees</div>
-            <div class="card-body">
-                <button class="btn btn-primary" onclick="getAllEmployees()">Get All</button>
-                <pre id="allEmployeesResult" class="mt-3 bg-light p-3"></pre>
-            </div>
-        </div>
 
-        <!-- Get Employee by ID -->
-        <div class="card mb-3">
-            <div class="card-header">GET Employee by ID</div>
-            <div class="card-body">
-                <input type="number" id="getEmployeeId" class="form-control mb-2" placeholder="Enter Employee ID">
-                <button class="btn btn-primary" onclick="getEmployeeById()">Get Employee</button>
-                <pre id="getEmployeeResult" class="mt-3 bg-light p-3"></pre>
-            </div>
-        </div>
+    <!-- Weather Section -->
+    <div class="container dashboard-section">
+        <h2><i class="bi bi-cloud-sun"></i> Current Weather</h2>
+        <div id="weatherResult" class="weather-container"></div>
+    </div>
 
-        <!-- Create Employee -->
-        <div class="card mb-3">
-            <div class="card-header">POST Create Employee</div>
-            <div class="card-body">
-                <input type="text" id="createFirstName" class="form-control mb-2" placeholder="First Name">
-                <input type="text" id="createLastName" class="form-control mb-2" placeholder="Last Name">
-                <input type="text" id="createTitle" class="form-control mb-2" placeholder="Title">
-                <input type="email" id="createEmail" class="form-control mb-2" placeholder="Email">
-                <button class="btn btn-success" onclick="createEmployee()">Create</button>
-                <pre id="createEmployeeResult" class="mt-3 bg-light p-3"></pre>
-            </div>
-        </div>
+    <!-- View Employees Section -->
+    <div class="container dashboard-section">
+        <h2><i class="bi bi-people"></i> View All Employees</h2>
+        <p class="text-muted">Retrieve and manage your complete employee roster</p>
+        <button class="btn btn-primary" onclick="getAllEmployees()">
+            <i class="bi bi-arrow-repeat"></i> Refresh Employee List
+        </button>
+        <div id="allEmployeesResult" class="mt-3"></div>
+    </div>
 
-        <!-- Update Employee -->
-        <div class="card mb-3">
-            <div class="card-header">PUT Update Employee</div>
-            <div class="card-body">
-                <input type="number" id="updateId" class="form-control mb-2" placeholder="Employee ID">
-                <input type="text" id="updateFirstName" class="form-control mb-2" placeholder="First Name">
-                <input type="text" id="updateLastName" class="form-control mb-2" placeholder="Last Name">
-                <input type="text" id="updateTitle" class="form-control mb-2" placeholder="Title">
-                <input type="email" id="updateEmail" class="form-control mb-2" placeholder="Email">
-                <button class="btn btn-warning" onclick="updateEmployee()">Update</button>
-                <pre id="updateEmployeeResult" class="mt-3 bg-light p-3"></pre>
+    <!-- Find Employee Section -->
+    <div class="container dashboard-section">
+        <h2><i class="bi bi-search"></i> Find Employee</h2>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Search by ID</label>
+                <div class="input-group">
+                    <input type="number" id="getEmployeeId" class="form-control" placeholder="Enter Employee ID">
+                    <button class="btn btn-primary" onclick="getEmployeeById()">
+                        <i class="bi bi-search"></i> Search
+                    </button>
+                </div>
+                <div id="getEmployeeResult" class="mt-3"></div>
             </div>
-        </div>
-
-        <!-- Delete Employee -->
-        <div class="card mb-3">
-            <div class="card-header">DELETE Employee</div>
-            <div class="card-body">
-                <input type="number" id="deleteEmployeeId" class="form-control mb-2" placeholder="Enter Employee ID">
-                <button class="btn btn-danger" onclick="deleteEmployee()">Delete</button>
-                <pre id="deleteEmployeeResult" class="mt-3 bg-light p-3"></pre>
-            </div>
-        </div>
-
-        <!-- Search Employees -->
-        <div class="card mb-3">
-            <div class="card-header">GET Search by Last Name</div>
-            <div class="card-body">
-                <input type="text" id="searchLastName" class="form-control mb-2" placeholder="Last Name">
-                <button class="btn btn-info" onclick="searchEmployees()">Search</button>
-                <pre id="searchEmployeesResult" class="mt-3 bg-light p-3"></pre>
+            <div class="col-md-6">
+                <label class="form-label">Search by Last Name</label>
+                <div class="input-group">
+                    <input type="text" id="searchLastName" class="form-control" placeholder="Enter Last Name">
+                    <button class="btn btn-info" onclick="searchEmployees()">
+                        <i class="bi bi-search"></i> Search
+                    </button>
+                </div>
+                <div id="searchEmployeesResult" class="mt-3"></div>
             </div>
         </div>
     </div>
 
-    
+    <!-- Add Employee Section -->
+    <div class="container dashboard-section">
+        <h2><i class="bi bi-person-plus"></i> Add New Employee</h2>
+        <form onsubmit="event.preventDefault(); createEmployee();">
+            <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">First Name</label>
+                    <input type="text" id="createFirstName" class="form-control" placeholder="John">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" id="createLastName" class="form-control" placeholder="Doe">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Job Title</label>
+                    <input type="text" id="createTitle" class="form-control" placeholder="Software Engineer">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" id="createEmail" class="form-control" placeholder="john.doe@company.com">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Create Employee
+            </button>
+            <div id="createEmployeeResult" class="mt-3"></div>
+        </form>
+    </div>
+
+    <!-- Update Employee Section -->
+    <div class="container dashboard-section">
+        <h2><i class="bi bi-pencil-square"></i> Update Employee</h2>
+        <form onsubmit="event.preventDefault(); updateEmployee();">
+            <div class="row g-3 mb-3">
+                <div class="col-md-3">
+                    <label class="form-label">Employee ID</label>
+                    <input type="number" id="updateId" class="form-control" placeholder="1">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">First Name</label>
+                    <input type="text" id="updateFirstName" class="form-control" placeholder="First Name">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" id="updateLastName" class="form-control" placeholder="Last Name">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Job Title</label>
+                    <input type="text" id="updateTitle" class="form-control" placeholder="Title">
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" id="updateEmail" class="form-control" placeholder="Email">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-warning">
+                <i class="bi bi-pencil"></i> Update Employee
+            </button>
+            <div id="updateEmployeeResult" class="mt-3"></div>
+        </form>
+    </div>
+
+    <!-- Delete Employee Section -->
+    <div class="container dashboard-section">
+        <h2><i class="bi bi-trash"></i> Remove Employee</h2>
+        <p class="text-muted">Permanently remove an employee from the system</p>
+        <div class="input-group mb-3">
+            <input type="number" id="deleteEmployeeId" class="form-control" placeholder="Enter Employee ID">
+            <button class="btn btn-danger" onclick="deleteEmployee()">
+                <i class="bi bi-trash"></i> Delete
+            </button>
+        </div>
+        <div id="deleteEmployeeResult" class="mt-3"></div>
+    </div>
+
+    <footer class="text-center py-4 text-muted mt-5">
+        <p>&copy; 2024 Employee Management System. All rights reserved.</p>
+    </footer>
 
     <script src="/js/site.js"></script>
     <script src="/js/weather.js"></script>

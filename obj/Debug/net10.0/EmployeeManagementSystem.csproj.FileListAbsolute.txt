@@ -150,8 +150,6 @@ C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\scoped
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\scopedcss\bundle\EmployeeManagementSystem.styles.css
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\scopedcss\projectbundle\EmployeeManagementSystem.bundle.scp.css
-C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\9nejpizab4-{0}-b9sayid5wm-b9sayid5wm.gz
-C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\my4hs66gfd-{0}-5317nju5y5-5317nju5y5.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\qm32lmlh8e-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\6lql9t67bf-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\acna8tjzgi-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -211,7 +209,6 @@ C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compre
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\rakzjxx1n8-{0}-muycvpuwrr-muycvpuwrr.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\28g18tw76h-{0}-87fc7y1x7t-87fc7y1x7t.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\swhddowpue-{0}-mlv21k5csn-mlv21k5csn.gz
-C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\abmw2owy08-{0}-th0ck2daqm-th0ck2daqm.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\g5t2fyy54w-{0}-3ptqhmgkgv-3ptqhmgkgv.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\bswc3fedds-{0}-3ptqhmgkgv-3ptqhmgkgv.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\staticwebassets.build.json
@@ -227,5 +224,7 @@ C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\Employ
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\ref\EmployeeManagementSystem.dll
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\bin\Debug\net10.0\DotNetEnv.dll
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\bin\Debug\net10.0\Sprache.dll
-C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\0rja6wcxcv-{0}-scu6xf3p5l-scu6xf3p5l.gz
-C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\dikwplyomj-{0}-j8xrhdmdk9-j8xrhdmdk9.gz
+C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\0rja6wcxcv-{0}-l6s27j6xm5-l6s27j6xm5.gz
+C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\9nejpizab4-{0}-xwjjnbzy24-xwjjnbzy24.gz
+C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\my4hs66gfd-{0}-wup0r3xs1t-wup0r3xs1t.gz
+C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\dikwplyomj-{0}-z2mju613wo-z2mju613wo.gz

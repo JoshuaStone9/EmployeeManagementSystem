@@ -2,6 +2,94 @@ html {
   font-size: 14px;
 }
 
+/* Main Container & Header */
+.container.mt-5 {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+  border-radius: 15px;
+  padding: 3rem 2rem;
+  color: white;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(255, 107, 53, 0.2);
+}
+
+.container.mt-5 h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.container.mt-5 > p {
+  text-align: center;
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin-bottom: 2rem;
+}
+
+/* Sections Grid Layout */
+.dashboard-section {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.dashboard-section h2 {
+  color: #ff6b35;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid #ff6b35;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-section > p.text-muted {
+  margin-bottom: 1.5rem;
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 1rem 1.5rem;
+}
+
+.card-body {
+  background: #f9f9f9;
+  padding: 1.5rem;
+}
+
+.card-body.bg-light {
+  background-color: #f8f9fa !important;
+}
+
 /* Weather Display Styles */
 .weather-container {
   display: grid;
@@ -10,48 +98,21 @@ html {
   margin-top: 1rem;
 }
 
-
-.container.mt-5 {
-  background: linear-gradient(135deg, #ff8f45 0%, #f7931e 100%);
-  border-radius: 15px;
-  padding: 2rem;
-  color: white;  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-
-.container.mt-5 h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 2rem;}
-
-.outside-weather-container {
-  background: linear-gradient(135deg, #ff4400 0%, #ff8800 100%);
-  border-radius: 15px;
-  padding: 2rem;
-  color: white;
-}
-
-.card-body {
-  background: linear-gradient(135deg, #fff5f0 0%, #ffe4d4 100%);
-  border-radius: 10px;
-}
-
-.weather-card-temp, .weather-card-body {
+.weather-card-temp {
   background-color: #0d6efd;
   color: white;
   border: none;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
   text-align: center;
   padding: 2rem;
+  border-radius: 10px;
 }
 
 .weather-card-temp .card-title {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  color: white;
 }
 
 .weather-card-temp .card-text {
@@ -90,6 +151,162 @@ html {
   font-weight: 600;
 }
 
+/* Buttons */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+  background: linear-gradient(135deg, #ff5a1f 0%, #f68310 100%);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #52c41a 0%, #85ce61 100%);
+  border: none;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(82, 196, 26, 0.3);
+  background: linear-gradient(135deg, #45b300 0%, #7abf1a 100%);
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #faad14 0%, #ffc53d 100%);
+  border: none;
+  color: #333;
+}
+
+.btn-warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(250, 173, 20, 0.3);
+  background: linear-gradient(135deg, #f09500 0%, #ffb820 100%);
+  color: #333;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #f5222d 0%, #ff7875 100%);
+  border: none;
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(245, 34, 45, 0.3);
+  background: linear-gradient(135deg, #ff1218 0%, #ff5560 100%);
+}
+
+.btn-info {
+  background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
+  border: none;
+}
+
+.btn-info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(24, 144, 255, 0.3);
+  background: linear-gradient(135deg, #0671d9 0%, #2c93ff 100%);
+}
+
+/* Forms */
+.form-control {
+  border: 2px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.15);
+}
+
+.form-label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* Input Group */
+.input-group .btn {
+  padding: 0.6rem 1.2rem;
+}
+
+.input-group .form-control {
+  border-right: none;
+}
+
+.input-group .btn {
+  border-left: none;
+}
+
+/* Table Styling */
+.table {
+  margin-bottom: 0;
+}
+
+.table-responsive {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table thead.table-light {
+  background-color: #f8f9fa !important;
+}
+
+.table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.table a {
+  color: #ff6b35;
+  text-decoration: none;
+}
+
+.table a:hover {
+  text-decoration: underline;
+}
+
+/* Alert Styling */
+.alert {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border-left: 4px solid #28a745;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-left: 4px solid #f5222d;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border-left: 4px solid #ffc107;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border-left: 4px solid #17a2b8;
+}
+
+/* Professional Body Background */
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -97,7 +314,7 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #ff6b35;
 }
 
 html {
@@ -107,8 +324,22 @@ html {
 
 body {
   margin-bottom: 60px;
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(247, 147, 30, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(247, 147, 30, 0.05) 100%);
   min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(247, 147, 30, 0.1) 100%);
+  border-top: 2px solid #f0f0f0;
+}
+
+/* Badge Styling */
+.badge.bg-primary {
+  background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%) !important;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.6rem;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {

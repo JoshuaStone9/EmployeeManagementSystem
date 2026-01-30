@@ -160,7 +160,7 @@ https://localhost:5001/api/employeesapi
 ## Testing the API
 
 ### Option 1: Web Interface
-Navigate to: `https://localhost:5001/api-test.html`
+Navigate to: `https://localhost:5001/dashboard.html`
 
 ### Option 2: VS Code REST Client
 1. Install "REST Client" extension

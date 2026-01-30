@@ -150,10 +150,8 @@ C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\scoped
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\scopedcss\bundle\EmployeeManagementSystem.styles.css
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\scopedcss\projectbundle\EmployeeManagementSystem.bundle.scp.css
-C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\0rja6wcxcv-{0}-4mixba1pz3-4mixba1pz3.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\9nejpizab4-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\my4hs66gfd-{0}-5317nju5y5-5317nju5y5.gz
-C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\dikwplyomj-{0}-fzvo3h8iow-fzvo3h8iow.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\qm32lmlh8e-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\6lql9t67bf-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\acna8tjzgi-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -229,3 +227,5 @@ C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\Employ
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\ref\EmployeeManagementSystem.dll
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\bin\Debug\net10.0\DotNetEnv.dll
 C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\bin\Debug\net10.0\Sprache.dll
+C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\0rja6wcxcv-{0}-scu6xf3p5l-scu6xf3p5l.gz
+C:\Users\josh\Documents\GitHub\EmployeeManagementSystem\obj\Debug\net10.0\compressed\dikwplyomj-{0}-j8xrhdmdk9-j8xrhdmdk9.gz

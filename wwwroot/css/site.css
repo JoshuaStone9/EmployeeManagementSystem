@@ -2,6 +2,85 @@ html {
   font-size: 14px;
 }
 
+/* Weather Display Styles */
+.weather-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+
+.container.mt-5 {
+  background: linear-gradient(135deg, #ff8f45 0%, #f7931e 100%);
+  border-radius: 15px;
+  padding: 2rem;
+  color: white;
+}
+
+.outside-weather-container {
+  background: linear-gradient(135deg, #ff4400 0%, #ff8800 100%);
+  border-radius: 15px;
+  padding: 2rem;
+  color: white;
+}
+
+.card-body {
+  background: linear-gradient(135deg, #fff5f0 0%, #ffe4d4 100%);
+  border-radius: 10px;
+}
+
+.weather-card-temp, .weather-card-body {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  text-align: center;
+  padding: 2rem;
+}
+
+.weather-card-temp .card-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.weather-card-temp .card-text {
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+.weather-card-temp h4 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.weather-card-details {
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.weather-stat {
+  margin-bottom: 1.5rem;
+}
+
+.weather-stat:last-child {
+  margin-bottom: 0;
+}
+
+.weather-stat .badge {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+.weather-stat h5 {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
